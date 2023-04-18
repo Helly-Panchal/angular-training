@@ -1,0 +1,6 @@
+app-book-list{
+  flex: 75%;
+}
+app-sidebar{
+  flex: 25%;
+}
