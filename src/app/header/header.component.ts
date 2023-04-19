@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  navElements = ['Dashboard', 'Today\'s Deal', 'Mobile' , 'Electronics', 'Customer service', 'About'];
 }

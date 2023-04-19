@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 app-main {
   display: flex;
+  /* overflow: hidden; */
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 800px) {
   app-main {
     display: block;
   }

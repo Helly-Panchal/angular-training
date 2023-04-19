@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./book-item.component.css']
 })
 export class BookItemComponent {
-
+  imageUrl = ['../../assets/Images/cardOne.jpg', '../../assets/Images/cardTwo.jpg','../../assets/Images/cardThree.jpg','../../assets/Images/cardFour.jpg','../../assets/Images/cardFive.jpg','../../assets/Images/cardSix.jpg'];
 }

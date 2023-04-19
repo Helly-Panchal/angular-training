@@ -1,0 +1,26 @@
+.sidebar-container {
+  display: none;
+}
+
+#sidebar-button {
+  position: absolute;
+  top: 1.5%;
+  right: 3%;
+}
+
+.offcanvas-header > h3{
+  margin-top: 5px;
+}
+
+.offcanvas-body a{
+  padding: 1rem 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .sidebar-container {
+    display: inline;
+  }
+  .list-group {
+    display: none;
+  }
+}
