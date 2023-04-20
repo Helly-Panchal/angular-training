@@ -3,14 +3,9 @@
     <div class="card h-100">
       <div class="card-body">
         <img [src]="imageUrl[0]" class="card-img-top h-40" height="180px" alt="book image">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text hover"
-          title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit voluptatibus qui ab?voluptatibus qui abvoluptatibus qui abvoluptatibus qui abvoluptatibus qui abvoluptatibus qui abvoluptatibus qui ab">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed
-          illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit
-          voluptatibus qui ab?voluptatibus qui abvoluptatibus qui abvoluptatibus qui abvoluptatibus qui abvoluptatibus
-          qui abvoluptatibus qui ab</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{cardDetailsObject[0].title}}</h5>
+        <p class="card-text hover" title="{{cardDetailsObject[0].description}}">{{cardDetailsObject[0].description}}</p>
+        <a href="#" class="btn btn-primary">{{buttonTitile}}</a>
       </div>
     </div>
   </div>
@@ -18,12 +13,9 @@
     <div class="card h-100">
       <div class="card-body">
         <img [src]="imageUrl[1]" class="card-img-top" height="180px" alt="book image">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text"
-          title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit voluptatibus qui ab?">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed illum velit quis!
-          Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit voluptatibus qui ab?</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{cardDetailsObject[1].title}}</h5>
+        <p class="card-text" title="{{cardDetailsObject[1].description}}">{{cardDetailsObject[1].description}}</p>
+        <a href="#" class="btn btn-primary">{{buttonTitile}}</a>
       </div>
     </div>
   </div>
@@ -31,13 +23,9 @@
     <div class="card h-100">
       <div class="card-body">
         <img [src]="imageUrl[2]" class="card-img-top" height="180px" alt="book image">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text"
-          title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit voluptatibus qui ab?">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed
-          illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit
-          voluptatibus qui ab?</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{cardDetailsObject[2].title}}</h5>
+        <p class="card-text" title="{{cardDetailsObject[2].description}}">{{cardDetailsObject[2].description}}</p>
+        <a href="#" class="btn btn-primary">{{buttonTitile}}</a>
       </div>
     </div>
   </div>
@@ -45,13 +33,9 @@
     <div class="card h-100">
       <div class="card-body">
         <img [src]="imageUrl[3]" class="card-img-top" height="180px" alt="book image">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text"
-          title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit voluptatibus qui ab?">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed
-          illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit
-          voluptatibus qui ab?</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{cardDetailsObject[3].title}}</h5>
+        <p class="card-text" title="{{cardDetailsObject[3].description}}">{{cardDetailsObject[3].description}}</p>
+        <a href="#" class="btn btn-primary">{{buttonTitile}}</a>
       </div>
     </div>
   </div>
@@ -59,13 +43,9 @@
     <div class="card h-100">
       <div class="card-body">
         <img [src]="imageUrl[4]" class="card-img-top" height="180px" alt="book image">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text"
-          title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit voluptatibus qui ab?">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed
-          illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit
-          voluptatibus qui ab?</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{cardDetailsObject[4].title}}</h5>
+        <p class="card-text" title="{{cardDetailsObject[4].description}}">{{cardDetailsObject[4].description}}</p>
+        <a href="#" class="btn btn-primary">{{buttonTitile}}</a>
       </div>
     </div>
   </div>
@@ -73,13 +53,9 @@
     <div class="card h-100">
       <div class="card-body">
         <img [src]="imageUrl[5]" class="card-img-top" height="180px" alt="book image">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text"
-          title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit voluptatibus qui ab?">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, illo qui officia non sed
-          illum velit quis! Sapiente tempora quisquam ipsa reiciendis unde quam quibusdam? Explicabo impedit
-          voluptatibus qui ab?</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{cardDetailsObject[5].title}}</h5>
+        <p class="card-text" title="{{cardDetailsObject[5].description}}">{{cardDetailsObject[5].description}}</p>
+        <a href="#" class="btn btn-primary">{{buttonTitile}}</a>
       </div>
     </div>
   </div>
