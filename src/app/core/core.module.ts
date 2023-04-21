@@ -9,6 +9,7 @@ import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookItemComponent } from './book-item/book-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,18 +18,16 @@ import { BookItemComponent } from './book-item/book-item.component';
     MainComponent,
     SidebarComponent,
     BookListComponent,
-    BookItemComponent
+    BookItemComponent,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule, FormsModule],
   exports: [
     HeaderComponent,
     FooterComponent,
     MainComponent,
     SidebarComponent,
     BookListComponent,
-    BookItemComponent
-  ]
+    BookItemComponent,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}
