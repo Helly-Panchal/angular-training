@@ -1,34 +1,19 @@
 <div class="list-group p-3 mt-4">
   <h3 class="list-group-item list-group-item-action active">Sidebar</h3>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}1</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}2</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}3</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}4</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}5</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}6</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}7</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}8</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}9</a>
-  <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}10</a>
+  <div class="sidebar-inner-items" *ngFor="let sidebarItem of listItemsDetails">
+    <a href="#" class="list-group-item list-group-item-action">{{sidebarItem}}</a>
+  </div>
 </div>
 
+<!-- responsive sidebar -->
 <div class="sidebar-container">
   <div class="offcanvas offcanvas-end" id="demo">
     <div class="offcanvas-header">
-      <h3 class="list-group-item list-group-item-action active">Sidebar</h3>
+      <h3 class="list-group-item list-group-item-action active">{{title}}</h3>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}1</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}2</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}3</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}4</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}5</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}6</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}7</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}8</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}9</a>
-      <a href="#" class="list-group-item list-group-item-action">{{listItemsDetails}}10</a>
+    <div class="offcanvas-body" *ngFor="let sidebarItem of listItemsDetails">
+      <a href="#" class="list-group-item list-group-item-action">{{sidebarItem}}</a>
     </div>
   </div>
   <button class="btn btn-primary" id="sidebar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"
