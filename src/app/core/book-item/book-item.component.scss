@@ -5,3 +5,13 @@
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
+
+.card-body a{
+  width: 4.5rem;
+  background-color: #146C94;
+  border: #146C94;
+}
+
+.card-body a:hover{
+  background-color: #146b94c4;
+}

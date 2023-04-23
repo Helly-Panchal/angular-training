@@ -5,19 +5,18 @@
   </div>
 </div>
 
-<!-- responsive sidebar -->
 <div class="sidebar-container">
   <div class="offcanvas offcanvas-end" id="demo">
     <div class="offcanvas-header">
-      <h3 class="list-group-item list-group-item-action active">{{title}}</h3>
+      <h3 class="list-group-item list-group-item-action active">Sidebar</h3>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" *ngFor="let sidebarItem of listItemsDetails">
       <a href="#" class="list-group-item list-group-item-action">{{sidebarItem}}</a>
     </div>
   </div>
-  <button class="btn btn-primary" id="sidebar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"
+  <button class="btn btn-secondary" id="sidebar-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"
     title="Sidebar">
-    <span><i class="fa-solid fa-angle-left"></i></span>
+    <span><i class="fa-solid fa-angle-left fa-lg"></i></span>
   </button>
 </div>

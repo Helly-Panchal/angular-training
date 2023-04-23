@@ -4,42 +4,18 @@
   <div class="container p-4">
     <!-- Section: Social media -->
     <section class="mb-4">
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        [href]="iconsLink[0]"
-        role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        [href]="iconsLink[1]"
-        role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        [href]="iconsLink[2]"
-        role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        [href]="iconsLink[3]"
-        role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        [href]="iconsLink[4]"
-        role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-      <a
-        class="btn btn-outline-light btn-floating m-1"
-        [href]="iconsLink[5]"
-        role="button"
-        ><i class="fab fa-github"></i
-      ></a>
+      <a class="btn btn-outline-light btn-floating m-1" [href]="iconsLink[0]" role="button">
+        <i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" [href]="iconsLink[1]" role="button">
+        <i class="fab fa-twitter"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" [href]="iconsLink[2]" role="button">
+        <i class="fab fa-google"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" [href]="iconsLink[3]" role="button">
+        <i class="fab fa-instagram"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" [href]="iconsLink[4]" role="button">
+        <i class="fab fa-linkedin-in"></i></a>
+      <a class="btn btn-outline-light btn-floating m-1" [href]="iconsLink[5]" role="button">
+        <i class="fab fa-github"></i></a>
     </section>
     <!-- Section: Social media -->
 
@@ -50,27 +26,14 @@
           <div class="col-md-5 col-12">
             <!-- Email input -->
             <div class="form-outline form-white mb-4">
-              <input
-                type="email"
-                id="form5Example21"
-                class="form-control"
-                placeholder="Enter your email"
-                name="email"
-                [(ngModel)]="email"
-                [value]="email"
-              />
+              <input type="email" id="form5Example21" class="form-control" placeholder="Enter your email" name="email"
+                [(ngModel)]="email" [value]="email" />
               <p>{{ email }}</p>
             </div>
           </div>
           <div class="col-auto">
             <!-- Submit button -->
-            <button
-              type="button"
-              (click)="validateEmail()"
-              class="btn btn-outline-light mb-4"
-            >
-              Subscribe
-            </button>
+            <button type="button" (click)="validateEmail()" class="btn btn-outline-light mb-4">Subscribe</button>
           </div>
         </div>
       </form>
