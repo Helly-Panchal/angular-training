@@ -1,0 +1,36 @@
+.main {
+  width: 60%;
+}
+
+.displayTask {
+  margin-left: 0;
+  padding-top: 5px;
+}
+
+.displayTask li {
+  display: flex;
+  margin: 0;
+}
+
+.displayTask li p {
+  flex: 85%;
+}
+
+.displayTask li button {
+  flex: 15%;
+}
+
+form {
+  margin-bottom: 50px;
+}
+
+.para {
+  margin-bottom: 0;
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+  .delete p {
+    display: none;
+  }
+}

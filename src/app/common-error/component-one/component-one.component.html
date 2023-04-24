@@ -1,0 +1,25 @@
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="main">
+    <h1 class="heading mb-4 text-center">{{ heading }}</h1>
+    <form action="#">
+      <div class="input-group mb-1">
+        <input type="text" class="form-control" placeholder="Add task here.." maxlength="40" [(ngModel)]="newTask"
+          [ngModelOptions]="{standalone: true}" required>
+        <button class="btn btn-outline-secondary" type="button" (click)="addTask()">Add <i
+            class="fa-solid fa-plus"></i></button>
+      </div>
+      <input type="button" class="form-control" (click)="clearAll()" value="Clear All">
+    </form>
+
+    <ul class="displayTask list-group" *ngFor="let task of getTasksList">
+      <li class="list-group-item">
+        <p>{{task.name}}</p>
+        <button (click)="deleteTask(task.id)" type="submit" class="delete btn btn-outline-secondary">
+          <span class="container d-flex align-items-center">
+            <p class="para">Delete </p><i class="fa-regular fa-trash-can"></i>
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
