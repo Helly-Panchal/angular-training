@@ -2,7 +2,7 @@
   <div class="col" *ngFor="let card of cardDetailsObject">
     <div class="card h-100">
       <div class="card-body">
-        <img [src]="card.imageUrl" class="card-img-top h-40" height="180px" alt="book image">
+        <img [src]="card.imageUrl" class="card-img-top h-40" height="180px" [alt]="card.imageDescription">
         <h5 class="card-title">{{card.title}}</h5>
         <p class="card-text hover" title="{{card.description}}">{{card.description}}</p>
         <a href="#" class="btn btn-primary">{{card.buttonTitile}}</a>

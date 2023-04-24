@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">
-  <!-- Grid container -->
+
   <div class="container p-4">
     <!-- Section: Social media -->
     <section class="mb-4">
@@ -45,42 +45,11 @@
     <!-- Links -->
     <section>
       <div class="row">
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0" *ngFor="let linkHeader of linksSection">
+          <h5 class="text-uppercase">{{ linkHeader.title }}</h5>
           <ul class="list-unstyled mb-0">
-            <li *ngFor="let link of links">
-              <a [href]="link.link" class="text-white">{{ link.title }}</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li *ngFor="let link of links">
-              <a [href]="link.link" class="text-white">{{ link.title }}</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li *ngFor="let link of links">
-              <a [href]="link.link" class="text-white">{{ link.title }}</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links</h5>
-
-          <ul class="list-unstyled mb-0">
-            <li *ngFor="let link of links">
-              <a [href]="link.link" class="text-white">{{ link.title }}</a>
+            <li *ngFor="let link of linkHeader.hyperlinkList">
+              <a [href]="link.href" class="text-white">{{ link.title }}</a>
             </li>
           </ul>
         </div>
@@ -90,7 +59,7 @@
   </div>
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+  <div class="text-center p-3">
     © {{ copyRightYear }} Copyright: BookShop
   </div>
   <!-- Copyright -->

@@ -7,7 +7,7 @@ import { INavElements } from '../interfaces/header.interface';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  public navElements: INavElements[] = [
+  public navElementsList: INavElements[] = [
     {
       title: 'Dashboard',
       link: 'https://www.google.com',

@@ -17,22 +17,90 @@ export class FooterComponent {
   ];
 
   //links area
-  public links = [
+  public linksSection = [
     {
       title: 'Link 1',
-      link: '#',
+      hyperlinkList: [
+        {
+          title: 'link 1',
+          href: '#',
+        },
+        {
+          title: 'link 2',
+          href: '#',
+        },
+        {
+          title: 'link 3',
+          href: '#',
+        },
+        {
+          title: 'link 4',
+          href: '#',
+        },
+      ],
     },
     {
       title: 'Link 2',
-      link: '#',
+      hyperlinkList: [
+        {
+          title: 'link 5',
+          href: '#',
+        },
+        {
+          title: 'link 6',
+          href: '#',
+        },
+        {
+          title: 'link 7',
+          href: '#',
+        },
+        {
+          title: 'link 8',
+          href: '#',
+        },
+      ],
     },
     {
       title: 'Link 3',
-      link: '#',
+      hyperlinkList: [
+        {
+          title: 'link 9',
+          href: '#',
+        },
+        {
+          title: 'link 10',
+          href: '#',
+        },
+        {
+          title: 'link 11',
+          href: '#',
+        },
+        {
+          title: 'link 12',
+          href: '#',
+        },
+      ],
     },
     {
       title: 'Link 4',
-      link: '#',
+      hyperlinkList: [
+        {
+          title: 'link 13',
+          href: '#',
+        },
+        {
+          title: 'link 14',
+          href: '#',
+        },
+        {
+          title: 'link 15',
+          href: '#',
+        },
+        {
+          title: 'link 16',
+          href: '#',
+        },
+      ],
     },
   ];
 
