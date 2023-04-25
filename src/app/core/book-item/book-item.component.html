@@ -2,7 +2,9 @@
   <img [src]="book.imageUrl" class="card-img-top h-40" height="180px" [alt]="book.imageDescription">
   <div class="card-body">
     <h5 class="card-title">{{book.title}}</h5>
-    <p class="card-text hover" title="{{book.description}}">{{book.description}}</p>
+    <span class="author me-3 pe-3">{{book.author}}</span>
+    <span class="book-price">&#8377; {{book.price}}</span>
+    <p class="card-text hover mt-3" title="{{book.description}}">{{book.description}}</p>
     <a href="#" class="btn btn-primary">{{book.buttonTitile}}</a>
   </div>
 </div>

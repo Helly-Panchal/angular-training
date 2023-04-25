@@ -2,16 +2,22 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+}
+
+.card-body h5{
+  margin-bottom: 5px;
+}
+
+.card-body .author .book-price{
+  font-size: 14px;
+}
+
+.card-body .author{
+  border-right: 2px solid rgba(0, 0, 0, 0.377);
 }
 
 .card-body a{
   width: 4.5rem;
-  background-color: #146C94;
-  border: #146C94;
-}
-
-.card-body a:hover{
-  background-color: #146b94c4;
 }

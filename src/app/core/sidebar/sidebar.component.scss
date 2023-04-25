@@ -1,10 +1,20 @@
+.list-group{
+  border: 0.2px solid rgba(128, 128, 128, 0.377);
+}
+
 .list-group h3{
   margin-bottom: 0;
-  background-color: #146C94;
+  background-color: #212529;
+  border-color: #212529;
 }
 
 .sidebar-container {
   display: none;
+}
+
+.sidebar-inner-items:last-child{
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 #sidebar-button {
@@ -15,8 +25,7 @@
 }
 
 .offcanvas-header{
-  // background-color: #0D6EFD;
-  background-color: #146C94;
+  background-color: #212529;
   color: white;
 }
 
