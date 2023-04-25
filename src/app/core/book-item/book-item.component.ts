@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 //interface
-import { ICardDetails } from '../interfaces/book-item.interface';
+import { IBook } from '../interfaces/book-item.interface';
 
 @Component({
   selector: 'app-book-item',
@@ -9,7 +9,7 @@ import { ICardDetails } from '../interfaces/book-item.interface';
   styleUrls: ['./book-item.component.scss'],
 })
 export class BookItemComponent {
-  @Input() cardDetailsObject!: ICardDetails[];
+  @Input() book!: IBook;
 
   constructor() {}
 

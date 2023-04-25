@@ -1,4 +1,4 @@
-export interface ICardDetails {
+export interface IBook {
   title: string;
   imageUrl: string;
   description: string;

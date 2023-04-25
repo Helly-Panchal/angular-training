@@ -1,12 +1,8 @@
-<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mt-1 p-3">
-  <div class="col" *ngFor="let card of cardDetailsObject">
-    <div class="card h-100">
-      <div class="card-body">
-        <img [src]="card.imageUrl" class="card-img-top h-40" height="180px" [alt]="card.imageDescription">
-        <h5 class="card-title">{{card.title}}</h5>
-        <p class="card-text hover" title="{{card.description}}">{{card.description}}</p>
-        <a href="#" class="btn btn-primary">{{card.buttonTitile}}</a>
-      </div>
-    </div>
+<div class="card">
+  <img [src]="book.imageUrl" class="card-img-top h-40" height="180px" [alt]="book.imageDescription">
+  <div class="card-body">
+    <h5 class="card-title">{{book.title}}</h5>
+    <p class="card-text hover" title="{{book.description}}">{{book.description}}</p>
+    <a href="#" class="btn btn-primary">{{book.buttonTitile}}</a>
   </div>
 </div>
