@@ -1,1 +1,9 @@
-<p>component-two works!</p>
+<form action="#">
+  <div class="input-group mb-1">
+    <input type="text" class="form-control" placeholder="Add task here.." name="task" maxlength="40" [(ngModel)]="task"
+      [value]="task" required>
+    <button class="btn btn-outline-secondary" type="button" (click)="addTask(task)">Add <i
+        class="fa-solid fa-plus"></i></button>
+  </div>
+  <input type="button" class="form-control" (click)="clearAll()" value="Clear All">
+</form>

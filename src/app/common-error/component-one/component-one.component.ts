@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TodoListService } from '../service/todo-list.service';
+import { LogService } from '../service/log.Service';
 
 @Component({
   selector: 'app-component-one',
@@ -7,25 +7,24 @@ import { TodoListService } from '../service/todo-list.service';
   styleUrls: ['./component-one.component.css'],
 })
 export class ComponentOneComponent {
-  public heading = 'TODO List';
-  newTask!: string;
+  public heading: string = 'TODO List';
+  public taskList: Array<string> = [];
 
-  constructor(private todoListService: TodoListService) {}
+  constructor(private logService: LogService) {}
 
-  addTask() {
-    this.todoListService.addTask(this.newTask);
-    this.newTask = '';
+  public addTask(task: string): void {
+    this.taskList.push(task);
+    this.logService.logInformation('Added task : ' + task);
   }
 
-  deleteTask(id: number) {
-    this.todoListService.deleteTask(id);
+  public deleteTask(id: number): void {
+    const task = this.taskList.splice(id, 1)[0];
+    this.logService.logInformation(
+      'Deleted task id and task : ' + id + ' - ' + task.toString()
+    );
   }
 
-  get getTasksList() {
-    return this.todoListService.getTasksList();
-  }
-
-  clearAll() {
-    this.todoListService.clearAll();
+  public clearAll(): void {
+    this.taskList = [];
   }
 }

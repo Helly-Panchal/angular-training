@@ -1,1 +1,6 @@
-<p>component-three works!</p>
+<li class="list-group-item">
+  <p>{{task.task}}</p>
+  <button (click)="deleteTask(task.id)" type="submit" class="delete btn btn-outline-secondary">
+    <i class="fa-regular fa-trash-can"></i>
+  </button>
+</li>
