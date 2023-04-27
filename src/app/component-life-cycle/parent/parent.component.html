@@ -1,0 +1,17 @@
+<section class="parent-component">
+  <h1>Parent works..!</h1>
+
+  <!-- use of view child -->
+  <button (click)="increase()">Increase</button>
+  <button (click)="decrease()">Decrease</button>
+  <!-- use of view child -->
+
+  <!-- use ng-content and display data from parent to child -->
+  <app-child #firstChildComponent>This paragraph from parent component..will be displayed in the child
+    component using <b>ng-content</b></app-child>
+
+  <app-child #secondChildComponent>This paragraph from parent component..will be displayed in the child
+    component using <b>ng-content</b></app-child>
+
+  <!-- use ng-content and display data from parent to child -->
+</section>
