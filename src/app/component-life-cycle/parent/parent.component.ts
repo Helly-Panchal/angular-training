@@ -9,7 +9,6 @@ import {
   AfterViewChecked,
   OnDestroy,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
 
@@ -55,6 +54,7 @@ export class ParentComponent
 
   ngAfterContentInit() {
     console.log('Parent afterContentInit');
+    console.log(this.counterComponent);
   }
 
   ngAfterContentChecked() {
@@ -67,6 +67,7 @@ export class ParentComponent
 
   ngAfterViewChecked() {
     console.log('Parent afterViewChecked');
+    console.log(this.counterComponent);
   }
 
   ngOnDestroy() {

@@ -2,16 +2,27 @@
   <h1>Parent works..!</h1>
 
   <!-- use of view child -->
-  <button (click)="increase()">Increase</button>
-  <button (click)="decrease()">Decrease</button>
+  <h3>Example of ViewChild</h3>
+  <p>methods from child component will be accessed by parent component using ViewChild</p>
+  <button type="button" class="btn btn-dark m-2" (click)="increase()">Increase</button>
+  <button type="button" class="btn btn-dark m-2" (click)="decrease()">Decrease</button>
   <!-- use of view child -->
 
   <!-- use ng-content and display data from parent to child -->
-  <app-child #firstChildComponent>This paragraph from parent component..will be displayed in the child
-    component using <b>ng-content</b></app-child>
+  <app-child #firstChildComponent>
+    <h4 #headChildOne>Child - 1</h4>
+    <p>
+      This paragraph from parent component..will be displayed in the child
+      component - 1 using <b>ng-content</b>
+    </p>
+  </app-child>
 
-  <app-child #secondChildComponent>This paragraph from parent component..will be displayed in the child
-    component using <b>ng-content</b></app-child>
-
+  <!-- <app-child #secondChildComponent>
+    <h4 #headChildTwo>Child - 2</h4>
+    <p>
+      This paragraph from parent component..will be displayed in the child
+      component - 2 using <b>ng-content</b>
+    </p>
+  </app-child> -->
   <!-- use ng-content and display data from parent to child -->
 </section>

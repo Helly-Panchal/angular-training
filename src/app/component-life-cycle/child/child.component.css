@@ -1,3 +1,15 @@
 .child-component {
+  padding: 1rem;
+  margin: 5px;
+  background-color: burlywood;
+}
+
+.countDisplay {
+  width: fit-content;
+  background-color: cadetblue;
+  border-radius: 20px;
+}
+
+.countDisplay::before {
   background-color: burlywood;
 }

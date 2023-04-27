@@ -8,6 +8,9 @@ import {
   AfterViewInit,
   AfterViewChecked,
   OnDestroy,
+  ContentChild,
+  ElementRef,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -26,8 +29,12 @@ export class ChildComponent
     AfterViewChecked,
     OnDestroy
 {
-  public message: string = '';
+  public message: string = 'Counter - 0';
   public counter: number = 0;
+  public isVisible: boolean = false;
+
+  @ContentChild('headChildOne') contentChildHeading!: ElementRef;
+  @ViewChild('checkBox') checkBox!: ElementRef;
 
   public increamentByOne(): void {
     this.counter = this.counter + 1;
@@ -53,6 +60,8 @@ export class ChildComponent
 
   ngAfterContentInit() {
     console.log('Child afterContentInit');
+    console.log(this.contentChildHeading);
+    this.contentChildHeading?.nativeElement.setAttribute('style', 'color:blue');
   }
 
   ngAfterContentChecked() {
@@ -69,5 +78,9 @@ export class ChildComponent
 
   ngOnDestroy() {
     console.log('Child onDestroy');
+  }
+
+  public clickCheckBox(): void {
+    this.isVisible = this.checkBox.nativeElement.checked;
   }
 }

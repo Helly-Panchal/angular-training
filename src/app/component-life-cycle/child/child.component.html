@@ -3,6 +3,21 @@
   <!-- use of ng-content -->
   <ng-content></ng-content>
 
-  <h3>{{message}}</h3>
+  <h3 class="p-2 countDisplay">{{message}}</h3>
+
+  <!-- use of ng-template -->
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="cb" name="cb" value="cbvalue" #checkBox
+      (click)="clickCheckBox()" />
+    <label class="form-check-label" for="cb">Click me to see the picture!</label>
+  </div>
+
+  <ng-container class="mb-3" *ngIf="checkBox.checked; else notChecked">
+    <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg" alt="image">
+  </ng-container>
+
+  <ng-template #notChecked>
+    <p class="mb-3">Checkbox is NOT checked ...please check to see the picture :)</p>
+  </ng-template>
 
 </section>
