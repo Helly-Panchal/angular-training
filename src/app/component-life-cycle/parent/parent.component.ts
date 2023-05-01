@@ -28,6 +28,9 @@ export class ParentComponent
     AfterViewChecked,
     OnDestroy
 {
+  public messageToChild: string = 'Message from parent component';
+  public messageFromChild: string = '';
+
   @ViewChild('firstChildComponent') counterComponent:
     | ChildComponent
     | undefined;
@@ -72,5 +75,9 @@ export class ParentComponent
 
   ngOnDestroy() {
     console.log('Parent onDestroy');
+  }
+
+  public receiveMessageFromChild(msg: string): void {
+    this.messageFromChild = msg;
   }
 }

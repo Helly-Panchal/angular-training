@@ -9,20 +9,17 @@
   <!-- use of view child -->
 
   <!-- use ng-content and display data from parent to child -->
-  <app-child #firstChildComponent>
+  <app-child #firstChildComponent [messageFromParent]="messageToChild"
+    (messageFromChild)="receiveMessageFromChild($event)">
     <h4 #headChildOne>Child - 1</h4>
     <p>
       This paragraph from parent component..will be displayed in the child
       component - 1 using <b>ng-content</b>
     </p>
   </app-child>
-
-  <!-- <app-child #secondChildComponent>
-    <h4 #headChildTwo>Child - 2</h4>
-    <p>
-      This paragraph from parent component..will be displayed in the child
-      component - 2 using <b>ng-content</b>
-    </p>
-  </app-child> -->
   <!-- use ng-content and display data from parent to child -->
+
+  <h4>{{messageFromChild}}</h4>
+
+  <h5 appCustomAttribute backgroundColorFirst="pink">Custom Attribute Directive example</h5>
 </section>

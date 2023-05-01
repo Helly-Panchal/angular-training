@@ -11,6 +11,9 @@ import {
   ContentChild,
   ElementRef,
   ViewChild,
+  Input,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 @Component({
@@ -33,6 +36,8 @@ export class ChildComponent
   public counter: number = 0;
   public isVisible: boolean = false;
 
+  @Input() messageFromParent!: string;
+  @Output() messageFromChild = new EventEmitter<string>();
   @ContentChild('headChildOne') contentChildHeading!: ElementRef;
   @ViewChild('checkBox') checkBox!: ElementRef;
 
@@ -82,5 +87,9 @@ export class ChildComponent
 
   public clickCheckBox(): void {
     this.isVisible = this.checkBox.nativeElement.checked;
+  }
+
+  public sendDataFromChild(): void {
+    this.messageFromChild.emit('Message from the child component');
   }
 }

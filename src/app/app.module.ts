@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { CommonErrorModule } from './common-error/common-error.module';
 import { ComponentLifeCycleModule } from './component-life-cycle/component-life-cycle.module';
+
 @NgModule({
   declarations: [AppComponent],
   providers: [],
