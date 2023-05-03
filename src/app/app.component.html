@@ -7,4 +7,24 @@
 <!-- <app-component-one></app-component-one> -->
 
 <!-- component life cycle -->
-<app-parent></app-parent>
+<!-- <app-parent></app-parent> -->
+
+<!-- routing demo -->
+<!-- <app-home></app-home>
+<app-products></app-products>
+<app-account></app-account> -->
+
+<h1 class="p-3">Welcome..!!</h1>
+<ul class="nav nav-tabs ps-3">
+  <li class="nav-item">
+    <a class="nav-link active" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}"
+      routerLink="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLinkActive="active" routerLink="/products">Products</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLinkActive="active" routerLink="/accounts">Accounts</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
