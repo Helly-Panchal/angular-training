@@ -1,0 +1,6 @@
+.accounts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px 300px 10px;
+}
