@@ -10,14 +10,17 @@ export class ProductsComponent {
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   public goToHome(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
   public goToAccounts(): void {
     // this.router.navigate(['accounts'], { relativeTo: this.activatedRoute });
     this.router.navigate(['/accounts']);
   }
 
-  public goToProductDetails() {
-    this.router.navigate(['/products/:productId/:productName']);
+  public showProductDetails(): void {
+    this.router.navigate(['/products', '1', 'default-product'], {
+      queryParams: { isDetails: true },
+      fragment: 'products-page',
+    });
   }
 }

@@ -5,8 +5,9 @@ import { ProductsComponent } from './products/products.component';
 import { AccountComponent } from './account/account.component';
 import { RouterModule } from '@angular/router';
 import { ProductsDetailsComponent } from './products/products-details/products-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
-  declarations: [HomeComponent, ProductsComponent, AccountComponent, ProductsDetailsComponent],
+  declarations: [HomeComponent, ProductsComponent, AccountComponent, ProductsDetailsComponent, PageNotFoundComponent],
   imports: [CommonModule, RouterModule],
   exports: [HomeComponent, ProductsComponent, AccountComponent],
 })

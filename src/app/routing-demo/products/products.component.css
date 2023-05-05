@@ -9,3 +9,9 @@
   justify-content: center;
   gap: 1rem;
 }
+
+.product-details-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

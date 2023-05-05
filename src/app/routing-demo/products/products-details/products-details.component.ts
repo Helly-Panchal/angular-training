@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
   public productName!: string;
   public parameterSubscription!: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.productId = this.activatedRoute.snapshot.params['productId'];
@@ -24,9 +24,21 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
         this.productName = parameter['productName'];
       }
     );
+
+    // fetching Query params and Fragments using router
+    this.activatedRoute.queryParams.subscribe((queryParameter: Params) => {
+      console.log('query params : ', queryParameter);
+    });
+    this.activatedRoute.fragment.subscribe((fragment) => {
+      console.log('this.activatedRoute.fragment :- ', fragment);
+    });
   }
 
   ngOnDestroy() {
     this.parameterSubscription.unsubscribe();
+  }
+
+  public closeProductDetails(): void {
+    this.router.navigate(['/products']);
   }
 }

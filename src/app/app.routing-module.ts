@@ -7,15 +7,23 @@ import { HomeComponent } from './routing-demo/home/home.component';
 import { ProductsComponent } from './routing-demo/products/products.component';
 import { AccountComponent } from './routing-demo/account/account.component';
 import { ProductsDetailsComponent } from './routing-demo/products/products-details/products-details.component';
+import { PageNotFoundComponent } from './routing-demo/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'accounts', component: AccountComponent },
+  { path: 'home', component: HomeComponent },
   {
-    path: 'products/:productId/:productName',
-    component: ProductsDetailsComponent,
+    path: 'products',
+    component: ProductsComponent,
+    children: [
+      {
+        path: ':productId/:productName',
+        component: ProductsDetailsComponent,
+      },
+    ],
   },
+  { path: 'accounts', component: AccountComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
