@@ -16,4 +16,8 @@ export class ProductsComponent {
     // this.router.navigate(['accounts'], { relativeTo: this.activatedRoute });
     this.router.navigate(['/accounts']);
   }
+
+  public goToProductDetails() {
+    this.router.navigate(['/products/:productId/:productName']);
+  }
 }
