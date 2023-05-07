@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent {
-  public submit(form: NgForm) {
-    console.log(form);
+  @ViewChild('form') firstTemplateDrivenForm!: NgForm;
+
+  // public submit(form: NgForm) : void {
+  //   console.log(form);
+  // }
+
+  public submit() {
+    console.log(this.firstTemplateDrivenForm);
   }
 }
