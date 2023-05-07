@@ -7,13 +7,15 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent {
+  public location: string = 'Ahmedabad';
+
   @ViewChild('form') firstTemplateDrivenForm!: NgForm;
 
-  // public submit(form: NgForm) : void {
+  // public onSubmit(form: NgForm) : void {
   //   console.log(form);
   // }
 
-  public submit() {
+  public onSubmit() {
     console.log(this.firstTemplateDrivenForm);
   }
 }
