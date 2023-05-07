@@ -42,15 +42,9 @@
     <div class="form-group mt-3">
       <div class="col-sm-offset-2 col-sm-10">
         <label for="gender">Gender</label>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gender" id="male" value="male" ngModel>
-          <label class="form-check-label" for="male">Male</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gender" id="female" value="female" ngModel>
-          <label class="form-check-label" for="female">
-            Female
-          </label>
+        <div class="form-check" *ngFor="let gender of genders">
+          <input class="form-check-input" type="radio" name="gender" [id]="gender" [value]="gender" ngModel>
+          <label class="form-check-label" [for]="gender">{{gender}}</label>
         </div>
       </div>
     </div>
@@ -59,8 +53,8 @@
     <div class="form-group mt-3">
       <div class="col-sm-offset-2 col-sm-10">
         <label for="location">Location </label>
-        <select class="form-select form-control" id=" location" ngModel name="location" required>>
-          <option value=" AHD">Ahmedabad</option>
+        <select class="form-select form-control" id=" location" [ngModel]="defaultLocation" name="location" required>
+          <option value="AHD">Ahmedabad</option>
           <option value="BRD">Baroda</option>
           <option value="RJT">Rajkot</option>
         </select>
@@ -84,6 +78,13 @@
         <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Submit</button>
         <button type="reset" class="btn btn-danger btn-lg ms-3">Reset</button>
       </div>
+    </div>
+
+    <!-- setValue and patchValue methods -->
+    <h5 class="text-center">Fill form using : </h5>
+    <div class="form-group mt-3 mb-4 fillForm-btns">
+      <button type="button" class="btn btn-outline-primary" (click)="setValueMethod()">Set Value Method</button>
+      <button type="button" class="btn btn-outline-primary" (click)="patchValueMethod()">Patch Value Method</button>
     </div>
   </form>
 </div>

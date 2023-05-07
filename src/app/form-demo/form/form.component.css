@@ -6,3 +6,9 @@ input.ng-invalid.ng-touched {
 .error-message {
   color: red;
 }
+
+.fillForm-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
