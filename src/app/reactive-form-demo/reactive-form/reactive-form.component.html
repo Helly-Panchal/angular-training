@@ -8,6 +8,7 @@
       <div class="col-sm-10 w-100">
         <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
           formControlName="firstName">
+        <span class="error-message" *ngIf="firstReactiveForm.get('firstName')!.touched">Please enter first name</span>
       </div>
     </div>
 
@@ -16,6 +17,7 @@
       <label class="control-label col-sm-3" for="lastName">Last Name</label>
       <div class="col-sm-10 w-100">
         <input type="text" class="form-control" id="lastName" placeholder="Enter last name" formControlName="lastName">
+        <span class="error-message" *ngIf="firstReactiveForm.get('lastName')!.touched">Please enter last name</span>
       </div>
     </div>
 
@@ -25,6 +27,12 @@
       <div class="col-sm-10 w-100">
         <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
       </div>
+      <div class="errors" *ngIf="!firstReactiveForm.get('email')!.valid && firstReactiveForm.get('email')!.touched">
+        <span class="error-message" *ngIf="(firstReactiveForm.get('emails')!.errors)!['required']">
+          Email is required</span>
+        <span class="error-message" *ngIf="(firstReactiveForm.get('email')!.errors)!['email']">
+          Please enter valid email</span>
+      </div>
     </div>
 
     <!-- password -->
@@ -32,6 +40,7 @@
       <label class="control-label col-sm-2" for="pwd">Password</label>
       <div class="col-sm-10 w-100">
         <input type="password" class="form-control" id="pwd" placeholder="Enter password" formControlName="password">
+        <span class="error-message" *ngIf="firstReactiveForm.get('password')!.touched">Please enter password</span>
       </div>
     </div>
 

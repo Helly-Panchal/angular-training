@@ -1,3 +1,12 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  box-shadow: 0.5px 0.5px 3px red;
+}
+
+.error-message {
+  color: red;
+}
+
 .fillForm-btns {
   display: flex;
   justify-content: center;
