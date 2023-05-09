@@ -1,5 +1,5 @@
 <div class="container mt-4 reactive-form-container">
-  <h2 class="text-center">First template driven form</h2>
+  <h2 class="text-center">First Reactive form</h2>
 
   <form [formGroup]="firstReactiveForm" (ngSubmit)="onSubmit()">
     <!-- first name -->
@@ -8,7 +8,11 @@
       <div class="col-sm-10 w-100">
         <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
           formControlName="firstName">
-        <span class="error-message" *ngIf="firstReactiveForm.get('firstName')!.touched">Please enter first name</span>
+        <div *ngIf="firstReactiveForm.get('firstName')?.invalid && firstReactiveForm.get('firstName')?.touched">
+          <span class="error-message" *ngIf="firstReactiveForm.get('firstName')?.errors!['required']">
+            Please enter first name.
+          </span>
+        </div>
       </div>
     </div>
 
@@ -17,30 +21,42 @@
       <label class="control-label col-sm-3" for="lastName">Last Name</label>
       <div class="col-sm-10 w-100">
         <input type="text" class="form-control" id="lastName" placeholder="Enter last name" formControlName="lastName">
-        <span class="error-message" *ngIf="firstReactiveForm.get('lastName')!.touched">Please enter last name</span>
+        <div *ngIf="firstReactiveForm.get('lastName')?.invalid && firstReactiveForm.get('lastName')?.touched">
+          <span class="error-message" *ngIf="firstReactiveForm.get('lastName')?.errors!['required']">
+            Please enter last name.
+          </span>
+        </div>
       </div>
     </div>
 
-    <!-- email -->
-    <div class="form-group mt-3">
-      <label class="control-label col-sm-2" for="email">Email</label>
-      <div class="col-sm-10 w-100">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+    <div formGroupName="login">
+      <!-- email -->
+      <div class="form-group mt-3">
+        <label class="control-label col-sm-2" for="email">Email</label>
+        <div class="col-sm-10 w-100">
+          <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+        </div>
+        <div class="errors"
+          *ngIf="firstReactiveForm.get('login.email')!.invalid && firstReactiveForm.get('login.email')!.touched">
+          <span class="error-message" *ngIf="firstReactiveForm.get('login.email')!.errors!['required']">
+            Email is required</span>
+          <span class="error-message" *ngIf="firstReactiveForm.get('login.email')!.errors!['email']">
+            Please enter valid email</span>
+        </div>
       </div>
-      <div class="errors" *ngIf="!firstReactiveForm.get('email')!.valid && firstReactiveForm.get('email')!.touched">
-        <span class="error-message" *ngIf="(firstReactiveForm.get('emails')!.errors)!['required']">
-          Email is required</span>
-        <span class="error-message" *ngIf="(firstReactiveForm.get('email')!.errors)!['email']">
-          Please enter valid email</span>
-      </div>
-    </div>
 
-    <!-- password -->
-    <div class="form-group mt-3">
-      <label class="control-label col-sm-2" for="pwd">Password</label>
-      <div class="col-sm-10 w-100">
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" formControlName="password">
-        <span class="error-message" *ngIf="firstReactiveForm.get('password')!.touched">Please enter password</span>
+      <!-- password -->
+      <div class="form-group mt-3">
+        <label class="control-label col-sm-2" for="pwd">Password</label>
+        <div class="col-sm-10 w-100">
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" formControlName="password">
+          <div
+            *ngIf="firstReactiveForm.get('login.password')?.invalid && firstReactiveForm.get('login.password')?.touched">
+            <span class="error-message" *ngIf="firstReactiveForm.get('login.password')?.errors!['required']">
+              Please enter password.
+            </span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -49,8 +65,7 @@
       <div class="col-sm-offset-2 col-sm-10">
         <label for="gender">Gender</label>
         <div class="form-check" *ngFor="let gender of genders">
-          <input class="form-check-input" type="radio" formControlName="gender" [id]="gender" [value]="gender"
-            name="gender">
+          <input class="form-check-input" type="radio" formControlName="gender" [id]="gender" [value]="gender">
           <label class="form-check-label" [for]="gender">{{gender}}</label>
         </div>
       </div>

@@ -16,10 +16,12 @@ export class ReactiveFormComponent implements OnInit {
 
   public initializeForm(): void {
     this.firstReactiveForm = new FormGroup({
+      login: new FormGroup({
+        email: new FormControl(null, [Validators.required, Validators.email]),
+        password: new FormControl(null, Validators.required),
+      }),
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, Validators.required),
       gender: new FormControl('Male'),
       location: new FormControl('AHD'),
       remember: new FormControl(null),
