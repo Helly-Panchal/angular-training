@@ -7,7 +7,8 @@ import { ComponentLifeCycleModule } from './component-life-cycle/component-life-
 import { CommonErrorModule } from './common-error/common-error.module';
 import { AppRoutingModule } from './app.routing-module';
 import { FormDemoModule } from './form-demo/form-demo.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormDemoModule } from './reactive-form-demo/reactive-form-demo.module';
 
 //components
 import { AppComponent } from './app.component';
@@ -25,6 +26,8 @@ import { AppComponent } from './app.component';
     RoutingDemoModule,
     AppRoutingModule,
     FormDemoModule,
+    ReactiveFormDemoModule,
+    ReactiveFormsModule,
   ],
 })
 export class AppModule {}

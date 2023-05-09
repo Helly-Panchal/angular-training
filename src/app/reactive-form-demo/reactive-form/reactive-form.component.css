@@ -1,0 +1,19 @@
+.fillForm-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+form {
+  margin: 0 10%;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"],
+button[type="reset"] {
+  width: 6rem;
+}

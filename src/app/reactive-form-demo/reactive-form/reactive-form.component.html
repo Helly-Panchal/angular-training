@@ -1,0 +1,103 @@
+<div class="container mt-4 reactive-form-container">
+  <h2 class="text-center">First template driven form</h2>
+
+  <form [formGroup]="firstReactiveForm">
+    <!-- first name -->
+    <div class="form-group mt-4">
+      <label class="control-label col-sm-2" for="firstName">First Name</label>
+      <div class="col-sm-10 w-100">
+        <input type="text" class="form-control" id="firstName" placeholder="Enter first name"
+          formControlName="firstName">
+      </div>
+    </div>
+
+    <!-- last name -->
+    <div class="form-group mt-3">
+      <label class="control-label col-sm-2" for="lastName">Last Name</label>
+      <div class="col-sm-10 w-100">
+        <input type="text" class="form-control" id="lastName" placeholder="Enter last name" formControlName="lastName">
+      </div>
+    </div>
+
+    <!-- email -->
+    <div class="form-group mt-3">
+      <label class="control-label col-sm-2" for="email">Email</label>
+      <div class="col-sm-10 w-100">
+        <input type="email" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+      </div>
+    </div>
+
+    <!-- password -->
+    <div class="form-group mt-3">
+      <label class="control-label col-sm-2" for="pwd">Password</label>
+      <div class="col-sm-10 w-100">
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" formControlName="password">
+      </div>
+    </div>
+
+    <!-- gender -->
+    <div class="form-group mt-3">
+      <div class="col-sm-offset-2 col-sm-10">
+        <label for="gender">Gender</label>
+        <div class="form-check" *ngFor="let gender of genders">
+          <input class="form-check-input" type="radio" formControlName="gender" [id]="gender" [value]="gender"
+            name="gender">
+          <label class="form-check-label" [for]="gender">{{gender}}</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- location -->
+    <div class="form-group mt-3">
+      <div class="col-sm-offset-2 col-sm-10 w-100">
+        <label for="location">Location </label>
+        <select class="form-select form-control" id=" location" formControlName="location">
+          <option selected value="AHD">Ahmedabad</option>
+          <option value="BRD">Baroda</option>
+          <option value="RJT">Rajkot</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- remember me -->
+    <div class="form-group mt-4">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <input class="form-check-input" type="checkbox" formControlName="remember"> Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- reset and submit btns -->
+    <div class="form-group mt-5 mb-4 btns">
+      <div class="col-sm-offset-2 col-sm-10 btns">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-danger ms-3">Reset</button>
+      </div>
+    </div>
+
+    <!-- setValue and patchValue methods -->
+    <h5 class="text-center">Fill form using : </h5>
+    <div class="form-group mt-3 mb-4 fillForm-btns">
+      <button type="button" class="btn btn-outline-primary">Set Value Method</button>
+      <button type="button" class="btn btn-outline-primary">Patch Value Method</button>
+    </div>
+  </form>
+
+  <hr>
+  <!-- <div class="row" *ngIf="isSubmitted">
+    <div class="col-xs-12">
+      <h4 class="mt-4 mb-4">Your Data</h4>
+      <p>First Name : {{user.firstName}}</p>
+      <p>Last Name : {{user.lastName}}</p>
+
+      <p>Email ID: {{user.emailId}}</p>
+      <p>Password: {{user.password}}</p>
+      <p>Location: {{user.location}}</p>
+      <p>Gender: {{user.gender}}</p>
+      <p>Remember Me: {{user.rememberMe}}</p>
+    </div>
+  </div> -->
+</div>
