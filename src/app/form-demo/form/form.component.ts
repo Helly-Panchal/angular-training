@@ -37,6 +37,7 @@ export class FormComponent {
     this.user.location = this.firstTemplateDrivenForm.value.location;
     this.user.rememberMe = this.firstTemplateDrivenForm.value.remember;
 
+
     this.firstTemplateDrivenForm.reset();
   }
 
