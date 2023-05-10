@@ -75,4 +75,19 @@ export class ReactiveFormComponent implements OnInit {
     });
     return promise;
   }
+
+  public setValueMethod(): void {
+    this.firstReactiveForm.setValue({
+      login: {
+        email: 'john@gmail.com',
+        password: 'John@123',
+      },
+      firstName: 'John',
+      lastName: 'Doe',
+      gender: 'Male',
+      location: 'AHD',
+      remember: true,
+      hobbies: [],
+    });
+  }
 }
