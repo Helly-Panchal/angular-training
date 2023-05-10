@@ -14,8 +14,15 @@ export class ReactiveFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+
+    // value changes observable
     this.firstReactiveForm.valueChanges.subscribe((value) => {
       console.log(value);
+    });
+
+    // status changes observable
+    this.firstReactiveForm.statusChanges.subscribe((status) => {
+      console.log(status);
     });
   }
 
