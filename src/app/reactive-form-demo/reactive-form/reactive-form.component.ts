@@ -90,4 +90,12 @@ export class ReactiveFormComponent implements OnInit {
       hobbies: [],
     });
   }
+
+  public patchValueMethod(): void {
+    this.firstReactiveForm.patchValue({
+      gender: 'Female',
+      location: 'BRD',
+      remember: false,
+    });
+  }
 }
