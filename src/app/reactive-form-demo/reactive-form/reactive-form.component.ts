@@ -14,6 +14,9 @@ export class ReactiveFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.firstReactiveForm.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
   }
 
   public initializeForm(): void {
