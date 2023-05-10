@@ -53,9 +53,11 @@
           <input type="password" class="form-control" id="pwd" placeholder="Enter password" formControlName="password">
           <div
             *ngIf="firstReactiveForm.get('login.password')?.invalid && firstReactiveForm.get('login.password')?.touched">
-            <span class="error-message" *ngIf="firstReactiveForm.get('login.password')?.errors!['required']">
+            <span class=" error-message" *ngIf="firstReactiveForm.get('login.password')?.errors!['required']">
               Please enter password.
             </span>
+            <span class="error-message" *ngIf="firstReactiveForm.get('login.password')!.errors!['passwordForbidden']">
+              This password is forbidden</span>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 export class ReactiveFormComponent implements OnInit {
   public genders = ['Male', 'Female'];
   public firstReactiveForm!: FormGroup;
+  public forbiddenPasswords = ['1234567890', 'abcdefgh'];
 
   ngOnInit(): void {
     this.initializeForm();
@@ -18,7 +19,7 @@ export class ReactiveFormComponent implements OnInit {
     this.firstReactiveForm = new FormGroup({
       login: new FormGroup({
         email: new FormControl(null, [Validators.required, Validators.email]),
-        password: new FormControl(null, Validators.required),
+        password: new FormControl(null, [Validators.required, this.checkForbiddenPassword.bind(this)]),
       }),
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
@@ -40,5 +41,13 @@ export class ReactiveFormComponent implements OnInit {
 
   public getHobby() {
     return (<FormArray>this.firstReactiveForm.get('hobbies')).controls;
+  }
+
+  public checkForbiddenPassword(control: FormControl): { [k: string]: boolean } | null {
+    if (this.forbiddenPasswords.indexOf(control.value) !== -1) {
+      return { passwordForbidden: true };
+    } else {
+      return null;
+    }
   }
 }
