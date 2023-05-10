@@ -43,6 +43,7 @@ export class ReactiveFormComponent implements OnInit {
 
   public onSubmit(): void {
     console.log('form:', this.firstReactiveForm);
+    this.firstReactiveForm.reset({ 'gender': 'Male', 'location': 'BRD' });
   }
 
   public addHobby(): void {
