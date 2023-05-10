@@ -43,6 +43,8 @@
             Email is required</span>
           <span class="error-message" *ngIf="firstReactiveForm.get('login.email')!.errors!['email']">
             Please enter valid email</span>
+          <span class="error-message" *ngIf="firstReactiveForm.get('login.email')!.errors!['emailForbidden']">
+            This email is forbidden</span>
         </div>
       </div>
 
