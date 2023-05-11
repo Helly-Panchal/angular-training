@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app.routing-module';
 import { FormDemoModule } from './form-demo/form-demo.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormDemoModule } from './reactive-form-demo/reactive-form-demo.module';
+import { HttpDemoModule } from './http-demo/http-demo.module';
 
 //components
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { AppComponent } from './app.component';
     FormDemoModule,
     ReactiveFormDemoModule,
     ReactiveFormsModule,
+    HttpDemoModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }
