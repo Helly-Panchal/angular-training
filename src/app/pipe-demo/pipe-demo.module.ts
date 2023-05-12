@@ -10,6 +10,9 @@ import { PipeExampleComponent } from './pipe-example/pipe-example.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PipeExampleComponent
   ]
 })
 export class PipeDemoModule { }
