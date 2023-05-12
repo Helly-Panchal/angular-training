@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IUser } from '../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment.development';
 import { NgForm } from '@angular/forms';
-import { map } from 'rxjs';
+
+// interface
+import { IUser } from '../interfaces/user.interface';
+
+// service
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user',
@@ -17,16 +20,28 @@ export class UserComponent implements OnInit {
 
   @ViewChild('form') usersForm!: NgForm;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService,) { }
 
   ngOnInit(): void {
     this.getUser();
   }
 
+  // get
+  public getUser(): void {
+    this.userService.getUsers().subscribe({
+      next: (response: any) => {
+        this.users = response;
+      },
+      error: (error) => {
+        console.log('GET:\n', error);
+      },
+    });
+  }
+
   // post
   public onCreateUser(userForm: NgForm): void {
     const user = userForm.value;
-    this.http.post(environment.baseURL + '/users.json', user).subscribe({
+    this.userService.postUser(user).subscribe({
       next: () => {
         this.getUser();
         userForm.reset();
@@ -35,33 +50,6 @@ export class UserComponent implements OnInit {
         console.log('POST:\n', error)
       }
     });
-  }
-
-  // get
-  public getUser(): void {
-    this.http
-      .get(environment.baseURL + 'users.json')
-      .pipe(
-        map((res: { [k: string]: any }) => {
-          const usersList: any = [];
-          if (res) {
-            Object.keys(res).forEach((id) => {
-              let val: any = res[id];
-              let obj = { id, ...val };
-              usersList.push(obj);
-            });
-          }
-          return usersList;
-        })
-      )
-      .subscribe({
-        next: (response: any) => {
-          this.users = response;
-        },
-        error: (error) => {
-          console.log('GET:\n', error);
-        },
-      });
   }
 
   // set values into the form for update
@@ -80,7 +68,7 @@ export class UserComponent implements OnInit {
   // update
   public updateUser(form: NgForm): void {
     const user = form.value;
-    this.http.put(environment.baseURL + `/users/${this.updatedId}.json`, user).subscribe(
+    this.userService.updateUser(this.updatedId, user).subscribe(
       {
         next: () => {
           this.getUser();
@@ -93,6 +81,7 @@ export class UserComponent implements OnInit {
     );
   }
 
+  // cancel update
   public cancelUpdate(): void {
     this.updatedId = null;
     this.usersForm.reset();
@@ -100,7 +89,7 @@ export class UserComponent implements OnInit {
 
   // delete
   public deleteUser(id: string): void {
-    this.http.delete(environment.baseURL + `/users/${id}.json`).subscribe({
+    this.userService.deleteUser(id).subscribe({
       next: () => {
         console.log("delete");
         this.getUser();
