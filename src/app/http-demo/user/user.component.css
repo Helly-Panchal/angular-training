@@ -2,7 +2,7 @@ form {
   margin: 0 15%;
 }
 
-table {
+.user-id {
   table-layout: fixed;
-  width: 100%;
+  width: 20%;
 }

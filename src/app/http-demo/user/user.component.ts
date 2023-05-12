@@ -13,6 +13,7 @@ import { map } from 'rxjs';
 export class UserComponent implements OnInit {
   public genders = ['Male', 'Female'];
   public users: IUser[] = [];
+  public updatedId: string | null = null;
 
   @ViewChild('form') usersForm!: NgForm;
 
@@ -22,25 +23,34 @@ export class UserComponent implements OnInit {
     this.getUser();
   }
 
+  // post
   public onCreateUser(userForm: NgForm): void {
     const user = userForm.value;
-    this.http.post(environment.baseURL + '/users.json', user).subscribe(() => {
-      this.getUser();
+    this.http.post(environment.baseURL + '/users.json', user).subscribe({
+      next: () => {
+        this.getUser();
+        userForm.reset();
+      },
+      error: (error) => {
+        console.log('POST:\n', error)
+      }
     });
-    // console.log(user);
   }
 
+  // get
   public getUser(): void {
     this.http
       .get(environment.baseURL + 'users.json')
       .pipe(
         map((res: { [k: string]: any }) => {
           const usersList: any = [];
-          Object.keys(res).forEach((id) => {
-            let val: any = res[id];
-            let obj = { id, ...val };
-            usersList.push(obj);
-          });
+          if (res) {
+            Object.keys(res).forEach((id) => {
+              let val: any = res[id];
+              let obj = { id, ...val };
+              usersList.push(obj);
+            });
+          }
           return usersList;
         })
       )
@@ -49,8 +59,55 @@ export class UserComponent implements OnInit {
           this.users = response;
         },
         error: (error) => {
-          console.log(error);
+          console.log('GET:\n', error);
         },
       });
+  }
+
+  // set values into the form for update
+  public onUpdate(user: IUser, id: string): void {
+    this.updatedId = id;
+    this.usersForm.setValue({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      phone: user.age,
+      age: user.age,
+      gender: user.gender,
+      isEmployee: user.isEmployee
+    });
+  }
+
+  // update
+  public updateUser(form: NgForm): void {
+    const user = form.value;
+    this.http.put(environment.baseURL + `/users/${this.updatedId}.json`, user).subscribe(
+      {
+        next: () => {
+          this.getUser();
+          form.reset();
+        },
+        error: (error) => {
+          console.log('UPDATE:\n', error);
+        },
+      }
+    );
+  }
+
+  public cancelUpdate(): void {
+    this.updatedId = null;
+    this.usersForm.reset();
+  }
+
+  // delete
+  public deleteUser(id: string): void {
+    this.http.delete(environment.baseURL + `/users/${id}.json`).subscribe({
+      next: () => {
+        console.log("delete");
+        this.getUser();
+      },
+      error: (error) => {
+        console.log('DELETE:\n', error);
+      }
+    });
   }
 }
