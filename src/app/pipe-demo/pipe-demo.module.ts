@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PipeExampleComponent } from './pipe-example/pipe-example.component';
+import { PercentagePipe } from './custome-pipe/percentage.pipe';
 
 
 
 @NgModule({
   declarations: [
-    PipeExampleComponent
+    PipeExampleComponent,
+    PercentagePipe
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     PipeExampleComponent
