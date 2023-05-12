@@ -5,5 +5,5 @@ export interface IUser {
   phone: number;
   age: number;
   gender: string;
-  isEmployee: boolean;
+  isEmployee: any;
 }

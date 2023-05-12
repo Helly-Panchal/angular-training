@@ -3,13 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { IUser } from '../interfaces/user.interface';
-import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  public _baseURL = environment.baseURL;
 
   constructor(private http: HttpClient) { }
 
@@ -32,14 +30,14 @@ export class UserService {
   }
 
   public postUser(user: IUser): Observable<any> {
-    return this.http.post(environment.baseURL + '/users.json', user)
+    return this.http.post(environment.baseURL + 'users.json', user)
   }
 
   public updateUser(id: string | null, user: IUser): Observable<any> {
-    return this.http.put(environment.baseURL + `/users/${id}.json`, user)
+    return this.http.put(environment.baseURL + `users/${id}.json`, user)
   }
 
   public deleteUser(id: string): Observable<any> {
-    return this.http.delete(environment.baseURL + `/users/${id}.json`)
+    return this.http.delete(environment.baseURL + `users/${id}.json`)
   }
 }

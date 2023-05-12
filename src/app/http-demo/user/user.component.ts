@@ -31,6 +31,8 @@ export class UserComponent implements OnInit {
     this.userService.getUsers().subscribe({
       next: (response: any) => {
         this.users = response;
+        console.log(this.users);
+
       },
       error: (error) => {
         console.log('GET:\n', error);
@@ -41,15 +43,18 @@ export class UserComponent implements OnInit {
   // post
   public onCreateUser(userForm: NgForm): void {
     const user = userForm.value;
+    console.log(userForm);
     this.userService.postUser(user).subscribe({
       next: () => {
         this.getUser();
-        userForm.reset();
+        userForm.reset({ isEmployee: false });
       },
       error: (error) => {
         console.log('POST:\n', error)
       }
     });
+    console.log(user);
+
   }
 
   // set values into the form for update
