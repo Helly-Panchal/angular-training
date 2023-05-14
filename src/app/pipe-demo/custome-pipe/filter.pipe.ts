@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { IStudent } from '../interfaces/student.interface';
 
 @Pipe({
-  name: 'filterStudents'
+  name: 'filterStudents',
+  pure: false
 })
 export class FilterPipe implements PipeTransform {
 

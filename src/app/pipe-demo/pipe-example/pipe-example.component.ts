@@ -23,38 +23,37 @@ export class PipeExampleComponent implements OnInit {
 
   public addDummyStudent(): void {
     // reference not changed
-    //   this.studentsData.push({
-    //     name: 'ABC',
-    //     course: 'Python',
-    //     fees: 4000,
-    //     marks: 320,
-    //     DOB: new Date('09-09-2001'),
-    //     gender: 'Female'
-    //   })
-    // }
-
-    // reference changed
-    let studentCopy = Object.assign([], this.studentsData);
-    studentCopy.push({
+    this.studentsData.push({
       name: 'ABC',
       course: 'Python',
       fees: 4000,
       marks: 320,
       DOB: new Date('09-09-2001'),
       gender: 'Female'
-    });
-    this.studentsData = studentCopy;
+    })
+
+    // reference changed
+    // let studentCopy = Object.assign([], this.studentsData);
+    // studentCopy.push({
+    //   name: 'ABC',
+    //   course: 'Python',
+    //   fees: 4000,
+    //   marks: 320,
+    //   DOB: new Date('09-09-2001'),
+    //   gender: 'Female'
+    // });
+    // this.studentsData = studentCopy;
   }
 
   public changeGender(): void {
     // change gender of the first student within the table
 
-    // this.studentsData[0].gender = 'Male';
     // reference is not changed, just simply changing value of a property
+    this.studentsData[0].gender = 'Male';
 
     // reference changed
-    let studentCopy: IStudent[] = Object.assign([], this.studentsData);
-    studentCopy[0].gender = 'Male';
-    this.studentsData = studentCopy;
+    // let studentCopy: IStudent[] = Object.assign([], this.studentsData);
+    // studentCopy[0].gender = 'Male';
+    // this.studentsData = studentCopy;
   }
 }
