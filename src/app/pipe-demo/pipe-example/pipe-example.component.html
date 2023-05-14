@@ -1,6 +1,13 @@
 <div class="m-4">
   <p>{{title}}</p>
   <h2 class="text-center p-3">{{heading}}</h2>
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search by gender" aria-label="Search"
+      aria-describedby="button-addon2" [(ngModel)]="filterText">
+    <!-- <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button> -->
+  </div>
+
   <table class="table table-bordered text-center">
     <thead class="table-success">
       <tr>
@@ -15,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of students; index as i">
+      <tr *ngFor="let student of studentsData | filterStudents : filterText; index as i">
         <td>{{i+1}}</td>
         <td>{{student.name}}</td>
         <td>{{student.course | titlecase}}</td>
