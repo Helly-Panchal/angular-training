@@ -5,7 +5,6 @@
   <div class="input-group mb-3">
     <input type="text" class="form-control" placeholder="Search by gender" aria-label="Search"
       aria-describedby="button-addon2" [(ngModel)]="filterText">
-    <!-- <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button> -->
   </div>
 
   <table class="table table-bordered text-center">
@@ -27,11 +26,15 @@
         <td>{{student.name}}</td>
         <td>{{student.course | titlecase}}</td>
         <td>{{student.fees | currency: 'INR'}}</td>
-        <td>{{student.marks}}</td>
+        <td><input type="number" value="student.marks" [(ngModel)]="student.marks"></td>
         <td>{{student.marks | percentage : totalMarks : 2}}</td>
         <td>{{student.DOB | date:'fullDate'}}</td>
         <td>{{student.gender | uppercase}}</td>
       </tr>
     </tbody>
   </table>
+  <br>
+  <button class="btn btn-outline-secondary" type="button" (click)="addDummyStudent()">AddStudent</button>
+  <br><br>
+  <button class="btn btn-outline-secondary" type="button" (click)="changeGender()">Change gender</button>
 </div>
