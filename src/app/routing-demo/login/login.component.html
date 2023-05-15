@@ -1,4 +1,4 @@
-<form class="p-5 login-form">
+<form class="p-5 login-form" #loginForm="ngForm">
   <div class="mb-3 w-75">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -9,5 +9,5 @@
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password.." ngModel
       name="password" required>
   </div>
-  <button type="submit" class="btn btn-primary login-btn">Login</button>
+  <button type="submit" class="btn btn-primary login-btn" [disabled]="!loginForm.valid">Login</button>
 </form>

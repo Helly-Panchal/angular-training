@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { ProductsDetailsComponent } from './products/products-details/products-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [HomeComponent, ProductsComponent, AccountComponent, ProductsDetailsComponent, PageNotFoundComponent, LoginComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   exports: [HomeComponent, ProductsComponent, AccountComponent],
 })
-export class RoutingDemoModule {}
+export class RoutingDemoModule { }
