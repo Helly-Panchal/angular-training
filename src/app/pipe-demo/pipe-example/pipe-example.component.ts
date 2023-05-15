@@ -13,6 +13,7 @@ export class PipeExampleComponent implements OnInit {
   public studentsData!: IStudent[];
   public totalMarks!: number;
   public filterText: string = "";
+
   public totalStudents = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(this.studentsData.length);

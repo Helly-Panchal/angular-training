@@ -7,15 +7,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  public goToHome(): void {
-    this.router.navigate(['/home']);
-  }
-  public goToAccounts(): void {
-    // this.router.navigate(['accounts'], { relativeTo: this.activatedRoute });
-    this.router.navigate(['/accounts']);
-  }
+  // public goToHome(): void {
+  //   this.router.navigate(['/home']);
+  // }
+  // public goToAccounts(): void {
+  //   // this.router.navigate(['accounts'], { relativeTo: this.activatedRoute });
+  //   this.router.navigate(['/accounts']);
+  // }
 
   public showProductDetails(): void {
     this.router.navigate(['/products', '1', 'default-product'], {

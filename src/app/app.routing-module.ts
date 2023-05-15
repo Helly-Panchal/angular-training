@@ -8,8 +8,12 @@ import { ProductsComponent } from './routing-demo/products/products.component';
 import { AccountComponent } from './routing-demo/account/account.component';
 import { ProductsDetailsComponent } from './routing-demo/products/products-details/products-details.component';
 import { PageNotFoundComponent } from './routing-demo/page-not-found/page-not-found.component';
+import { LoginComponent } from './routing-demo/login/login.component';
 
 const appRoutes: Routes = [
+  {
+    path: 'login', component: LoginComponent
+  },
   { path: 'home', component: HomeComponent },
   {
     path: 'products',
@@ -22,7 +26,7 @@ const appRoutes: Routes = [
     ],
   },
   { path: 'accounts', component: AccountComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -30,4 +34,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
