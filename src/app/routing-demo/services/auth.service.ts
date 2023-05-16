@@ -4,4 +4,6 @@ import { Injectable } from "@angular/core";
   providedIn: 'root'
 })
 
-export class AuthService { }
+export class AuthService {
+
+}

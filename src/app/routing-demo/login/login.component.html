@@ -1,13 +1,14 @@
-<form class="p-5 login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+<form class="p-5 login-form" #loginForm="ngForm">
   <div class="mb-3 w-75">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-      placeholder="Enter email.." ngModel name="email" required email>
+    <label for="exampleInputuserName1" class="form-label">User Name</label>
+    <input type="text" class="form-control" id="exampleInputuserName1" placeholder="Enter username.." ngModel
+      name="username" required>
   </div>
   <div class="mb-3 w-75">
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password.." ngModel
       name="password" required>
   </div>
-  <button type="submit" class="btn btn-primary login-btn" [disabled]="!loginForm.valid">Login</button>
+  <button type="submit" class="btn btn-primary login-btn" [disabled]="!loginForm.valid"
+    (click)="login(loginForm.value)">Login</button>
 </form>

@@ -8,8 +8,9 @@ import { ProductsDetailsComponent } from './products/products-details/products-d
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
-  declarations: [HomeComponent, ProductsComponent, AccountComponent, ProductsDetailsComponent, PageNotFoundComponent, LoginComponent],
+  declarations: [HomeComponent, ProductsComponent, AccountComponent, ProductsDetailsComponent, PageNotFoundComponent, LoginComponent, DashboardComponent],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [HomeComponent, ProductsComponent, AccountComponent],
 })

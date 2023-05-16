@@ -12,7 +12,7 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
   public productName!: string;
   public parameterSubscription!: Subscription;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.productId = this.activatedRoute.snapshot.params['productId'];
@@ -39,6 +39,6 @@ export class ProductsDetailsComponent implements OnInit, OnDestroy {
   }
 
   public closeProductDetails(): void {
-    this.router.navigate(['/products']);
+    this.router.navigate(['dashboard/products']);
   }
 }

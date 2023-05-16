@@ -14,8 +14,9 @@
     <!-- <a [routerLink]="['/products', '200', 'product-2']">reload page</a> -->
 
     <!-- Passing Query params and Fragments using routerLink -->
-    <a [routerLink]="['/products', '300', 'product-3']" [queryParams]="{ isProductDetails : true }"
+    <a [routerLink]="['/dashboard/products', '300', 'product-3']" [queryParams]="{ isProductDetails : true }"
       fragment="product-details-page-1">reload page</a>
 
   </h5>
 </div>
+<router-outlet></router-outlet>

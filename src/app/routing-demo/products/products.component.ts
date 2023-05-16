@@ -18,7 +18,7 @@ export class ProductsComponent {
   // }
 
   public showProductDetails(): void {
-    this.router.navigate(['/products', '1', 'default-product'], {
+    this.router.navigate(['dashboard/products', '1', 'default-product'], {
       queryParams: { isDetails: true },
       fragment: 'products-page',
     });

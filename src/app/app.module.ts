@@ -12,12 +12,17 @@ import { ReactiveFormDemoModule } from './reactive-form-demo/reactive-form-demo.
 import { HttpDemoModule } from './http-demo/http-demo.module';
 import { PipeDemoModule } from './pipe-demo/pipe-demo.module';
 
+import { JwtInterceptorInterceptor } from './routing-demo/interceptor/jwt-interceptor.interceptor';
+
 //components
 import { AppComponent } from './app.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorInterceptor, multi: true
+  }],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
