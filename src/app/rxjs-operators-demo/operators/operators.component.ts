@@ -37,6 +37,13 @@ export class OperatorsComponent implements OnDestroy {
       console.log(res);
     }))
   }
+
+  // concatWith operator
+  public onClickConcatWithOperator(): void {
+    this.subscriptions.push(this.operatorService.concatWith().subscribe(res => {
+      console.log(res);
+    }))
+  }
 }
 
 
