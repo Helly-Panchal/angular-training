@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, switchMap } from 'rxjs';
+import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, shareReplay, switchMap, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -116,5 +116,12 @@ export class OperatorsService {
   public getDogBreed(breed: string): Observable<any> {
     const url = 'https://dog.ceo/api/breed/' + breed + '/list';
     return this.http.get<any>(url);
+  }
+
+  // shareReplay operator
+  public shareReply(): Observable<number> {
+    // 3 is buffer size, which means it will cache the last 3 emitted values and replay them to new subscribers.
+    const source$ = interval(2000).pipe(take(3), shareReplay(3));
+    return source$;
   }
 }

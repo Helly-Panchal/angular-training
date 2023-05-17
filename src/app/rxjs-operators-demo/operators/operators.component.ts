@@ -155,6 +155,19 @@ export class OperatorsComponent implements OnDestroy, OnInit {
     return of({});
   }
 
+  // shareReplay operator
+  public onClickShareReplyOperator(): void {
+    this.operatorService.shareReply().subscribe((res) => {
+      console.log('Obs1 :- ', res);
+    });
+    this.operatorService.shareReply().subscribe((res) => {
+      console.log('Obs2 :- ', res);
+    });
+    setTimeout(() => {
+      this.operatorService.shareReply().subscribe((res) => {
+        console.log('Obs3 :- ', res);
+      });
+    }, 8000);
+  }
 }
-
 

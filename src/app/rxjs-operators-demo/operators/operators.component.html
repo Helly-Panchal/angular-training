@@ -56,5 +56,13 @@
   </div>
 </form>
 
-<input type="text" [(ngModel)]="searchText" placeholder="Search breed" (keyup)="search()" />
-{{ breeds$ | async | json }}
+<div class="m-3 p-3">
+  {{ breeds$ | async | json }}
+  <input type="text" [(ngModel)]="searchText" placeholder="Search breed" (keyup)="search()" class="form-control" />
+</div>
+
+
+<hr>
+<div class="col-sm-offset-2 col-sm-10">
+  <button type="button" class="btn btn-primary ms-4" (click)="onClickShareReplyOperator()">ShareReplay Operator</button>
+</div>
