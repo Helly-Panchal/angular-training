@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { OperatorsService } from '../services/operators.service';
-import { Subscription } from 'rxjs';
+import { Subscription, from } from 'rxjs';
 
 @Component({
   selector: 'app-operators',
@@ -20,13 +20,23 @@ export class OperatorsComponent implements OnDestroy {
     });
   }
 
+  // of operator
   public onClickOfOperator(): void {
     this.subscriptions.push(this.operatorService.ofOperator().subscribe(res => {
       console.log(res);
     }));
 
-    this, this.subscriptions.push(this.operatorService.ofOperatorWithList().subscribe(res => {
+    this.subscriptions.push(this.operatorService.ofOperatorWithList().subscribe(res => {
+      console.log(res);
+    }))
+  }
+
+  // from operator
+  public onClickFromOperator(): void {
+    this.subscriptions.push(this.operatorService.fromOperator().subscribe(res => {
       console.log(res);
     }))
   }
 }
+
+
