@@ -11,12 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormDemoModule } from './reactive-form-demo/reactive-form-demo.module';
 import { HttpDemoModule } from './http-demo/http-demo.module';
 import { PipeDemoModule } from './pipe-demo/pipe-demo.module';
+import { RxjsOperatorsDemoModule } from './rxjs-operators-demo/rxjs-operators-demo.module';
 
+// interceptors
 import { JwtInterceptorInterceptor } from './routing-demo/interceptor/jwt-interceptor.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //components
 import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +38,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ReactiveFormDemoModule,
     ReactiveFormsModule,
     HttpDemoModule,
-    PipeDemoModule
+    PipeDemoModule,
+    RxjsOperatorsDemoModule
   ],
 })
 export class AppModule { }

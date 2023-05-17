@@ -10,6 +10,9 @@ import { OperatorsComponent } from './operators/operators.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    OperatorsComponent
   ]
 })
 export class RxjsOperatorsDemoModule { }
