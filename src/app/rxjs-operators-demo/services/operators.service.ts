@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, concatWith, from, interval, map, merge, of } from 'rxjs';
+import { Observable, concatMap, concatWith, from, interval, map, merge, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +57,17 @@ export class OperatorsService {
   public mapOperator(): Observable<number> {
     const numbers$ = of(1, 2, 3, 4, 5);
     return numbers$.pipe(map((x) => x * 100));
+  }
+
+  // concatMap operator
+  public concatMapOperator(): Observable<string> {
+    const numbers$ = of(1, 2, 3, 4, 5);
+    const inner$ = of('A', 'B', 'C');
+
+    return numbers$.pipe(concatMap((value) => {
+      console.log('Source value :- ', value);
+      console.log('Starting inner observable');
+      return inner$;
+    }));
   }
 }
