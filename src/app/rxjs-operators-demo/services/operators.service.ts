@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, switchMap, timer } from 'rxjs';
+import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -113,7 +113,7 @@ export class OperatorsService {
   }
 
   // example for forkJoin
-  public getDoyBreed(breed: string): Observable<any> {
+  public getDogBreed(breed: string): Observable<any> {
     const url = 'https://dog.ceo/api/breed/' + breed + '/list';
     return this.http.get<any>(url);
   }

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OperatorsService } from '../services/operators.service';
-import { Subscription, debounceTime, forkJoin, from, interval, take, takeUntil, timer } from 'rxjs';
+import { Observable, Subject, Subscription, catchError, debounceTime, distinctUntilChanged, forkJoin, from, interval, of, switchMap, take, takeUntil, tap, timer } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class OperatorsComponent implements OnDestroy, OnInit {
   public subscriptions: Subscription[] = [];
   public debounceTimeExampleForm!: FormGroup;
+  searchText!: string;
+  breeds$!: Observable<any>;
+  searchBreed$ = new Subject<string>();
 
   constructor(private operatorService: OperatorsService) { }
 
@@ -22,6 +25,8 @@ export class OperatorsComponent implements OnDestroy, OnInit {
     this.debounceTimeExampleForm.valueChanges.pipe(debounceTime(200)).subscribe(value => {
       console.log(value);
     });
+
+    this.searchBreed();
   }
 
   ngOnDestroy(): void {
@@ -113,9 +118,9 @@ export class OperatorsComponent implements OnDestroy, OnInit {
 
   // forkJoin
   public onClickForkJoinOperator(): void {
-    const obs1$ = this.operatorService.getDoyBreed('hound');
-    const obs2$ = this.operatorService.getDoyBreed('mastiff');
-    const obs3$ = this.operatorService.getDoyBreed('retriever');
+    const obs1$ = this.operatorService.getDogBreed('hound');
+    const obs2$ = this.operatorService.getDogBreed('mastiff');
+    const obs3$ = this.operatorService.getDogBreed('retriever');
 
     forkJoin([obs1$, obs2$, obs3$]).subscribe((res) => {
       console.log("forkJoin data: ", res);
@@ -124,6 +129,32 @@ export class OperatorsComponent implements OnDestroy, OnInit {
         console.log("Error occured ", error);
       }
   }
+
+  search() {
+    this.searchBreed$.next(this.searchText);
+  }
+
+  searchBreed() {
+    this.breeds$ = this.searchBreed$.pipe(
+      debounceTime(3000),
+      distinctUntilChanged(),
+      switchMap(searchText => this.searchBreedApi(searchText))
+    );
+  }
+
+  searchBreedApi(searchText: string): Observable<any> {
+    if (searchText) {
+      return from(this.operatorService.getDogBreed(searchText))
+        .pipe(
+          catchError((error) => {
+            return of({});
+          }),
+          tap(() => console.log('Searching......'))
+        );
+    }
+    return of({});
+  }
+
 }
 
 
