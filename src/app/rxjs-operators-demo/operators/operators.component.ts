@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { OperatorsService } from '../services/operators.service';
-import { Subscription, from, interval, take, takeUntil, timer } from 'rxjs';
+import { Subscription, forkJoin, from, interval, take, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-operators',
@@ -97,6 +97,20 @@ export class OperatorsComponent implements OnDestroy {
     this.subscriptions.push(this.operatorService.takeUntilOperator().pipe(takeUntil(timer(3000))).subscribe(res => {
       console.log("TakeUntil operator : ", res);
     }))
+  }
+
+  // forkJoin
+  public onClickForkJoinOperator(): void {
+    const obs1$ = this.operatorService.getDoyBreed('hound');
+    const obs2$ = this.operatorService.getDoyBreed('mastiff');
+    const obs3$ = this.operatorService.getDoyBreed('retriever');
+
+    forkJoin([obs1$, obs2$, obs3$]).subscribe((res) => {
+      console.log("forkJoin data: ", res);
+    }),
+      (error: any) => {
+        console.log("Error occured ", error);
+      }
   }
 }
 

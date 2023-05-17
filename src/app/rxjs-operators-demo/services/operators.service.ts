@@ -111,4 +111,10 @@ export class OperatorsService {
   public takeUntilOperator(): Observable<number> {
     return interval(1000);
   }
+
+  // example for forkJoin
+  public getDoyBreed(breed: string): Observable<any> {
+    const url = 'https://dog.ceo/api/breed/' + breed + '/list';
+    return this.http.get<any>(url);
+  }
 }
