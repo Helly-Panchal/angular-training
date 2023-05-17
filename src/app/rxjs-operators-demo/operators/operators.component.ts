@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { OperatorsService } from '../services/operators.service';
-import { Subscription, from } from 'rxjs';
+import { Subscription, from, take } from 'rxjs';
 
 @Component({
   selector: 'app-operators',
@@ -81,6 +81,12 @@ export class OperatorsComponent implements OnDestroy {
   public onClickSwitchMapOperator(): void {
     this.subscriptions.push(this.operatorService.switchMapOperator().subscribe(res => {
       console.log("SwitchMap operator : ", res);
+    }))
+  }
+
+  public onClickTakeOperator(): void {
+    this.subscriptions.push(this.operatorService.concatMapOperator().pipe(take(2)).subscribe(res => {
+      console.log("Take operator : ", res);
     }))
   }
 }
