@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, switchMap } from 'rxjs';
+import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, switchMap, timer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -105,5 +105,10 @@ export class OperatorsService {
       const url = 'https://dog.ceo/api/breed/' + breed + '/list';
       return this.http.get(url); // inner observable
     }))
+  }
+
+  //take until operator
+  public takeUntilOperator(): Observable<number> {
+    return interval(1000);
   }
 }

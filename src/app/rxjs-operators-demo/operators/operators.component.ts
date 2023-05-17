@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { OperatorsService } from '../services/operators.service';
-import { Subscription, from, take } from 'rxjs';
+import { Subscription, from, interval, take, takeUntil, timer } from 'rxjs';
 
 @Component({
   selector: 'app-operators',
@@ -78,15 +78,24 @@ export class OperatorsComponent implements OnDestroy {
     }))
   }
 
+  // switchMap operator
   public onClickSwitchMapOperator(): void {
     this.subscriptions.push(this.operatorService.switchMapOperator().subscribe(res => {
       console.log("SwitchMap operator : ", res);
     }))
   }
 
+  // take operator
   public onClickTakeOperator(): void {
     this.subscriptions.push(this.operatorService.concatMapOperator().pipe(take(2)).subscribe(res => {
       console.log("Take operator : ", res);
+    }))
+  }
+
+  // takeuntill operator
+  public onClickTakeUntilOperator(): void {
+    this.subscriptions.push(this.operatorService.takeUntilOperator().pipe(takeUntil(timer(3000))).subscribe(res => {
+      console.log("TakeUntil operator : ", res);
     }))
   }
 }
