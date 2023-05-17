@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, concatMap, concatWith, from, interval, map, merge, of } from 'rxjs';
+import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -74,10 +74,23 @@ export class OperatorsService {
     }));
   }
 
+  // concatMap operator with api
   public concatMapWithAPI(): Observable<any> {
     const source$ = of('hound', 'mastiff', 'retriever');
     const concatMapped$ = source$.pipe(
       concatMap((breed) => {
+        const url = 'https://dog.ceo/api/breed/' + breed + '/list';
+        return this.http.get(url); // inner observable
+      })
+    );
+    return concatMapped$;
+  }
+
+  // mergeMap operator
+  public mergeMapOperator(): Observable<any> {
+    const source$ = of('hound', 'mastiff', 'retriever');
+    const concatMapped$ = source$.pipe(
+      mergeMap((breed) => {
         const url = 'https://dog.ceo/api/breed/' + breed + '/list';
         return this.http.get(url); // inner observable
       })

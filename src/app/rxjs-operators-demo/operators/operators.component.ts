@@ -65,9 +65,17 @@ export class OperatorsComponent implements OnDestroy {
       console.log("ConcatMap operator : ", res);
     }));
 
+    // concatMap operator with api
     this.subscriptions.push(this.operatorService.concatMapWithAPI().subscribe(res => {
       console.log("ConcatMap operator : ", res);
     }));
+  }
+
+  // mergeMap operator
+  public onClickMergeMapOperator(): void {
+    this.subscriptions.push(this.operatorService.mergeMapOperator().subscribe(res => {
+      console.log("MergeMap operator : ", res);
+    }))
   }
 }
 
