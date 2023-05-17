@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, concatMap, concatWith, from, interval, map, merge, of } from 'rxjs';
 
@@ -5,6 +6,8 @@ import { Observable, concatMap, concatWith, from, interval, map, merge, of } fro
   providedIn: 'root'
 })
 export class OperatorsService {
+
+  constructor(private http: HttpClient) { }
 
   // of operator with numbers
   public ofOperator(): Observable<number> {
@@ -69,5 +72,16 @@ export class OperatorsService {
       console.log('Starting inner observable');
       return inner$;
     }));
+  }
+
+  public concatMapWithAPI(): Observable<any> {
+    const source$ = of('hound', 'mastiff', 'retriever');
+    const concatMapped$ = source$.pipe(
+      concatMap((breed) => {
+        const url = 'https://dog.ceo/api/breed/' + breed + '/list';
+        return this.http.get(url); // inner observable
+      })
+    );
+    return concatMapped$;
   }
 }
