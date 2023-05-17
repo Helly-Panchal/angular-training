@@ -51,6 +51,13 @@ export class OperatorsComponent implements OnDestroy {
       console.log("Merge operator : ", res);
     }))
   }
+
+  // map operator
+  public onClickMapOperator(): void {
+    this.subscriptions.push(this.operatorService.mapOperator().subscribe(res => {
+      console.log("Map operator : ", res);
+    }))
+  }
 }
 
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, concatWith, from, interval, merge, of } from 'rxjs';
+import { Observable, concatWith, from, interval, map, merge, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +51,11 @@ export class OperatorsService {
     const source2$ = interval(2000);
 
     return merge(source1$, source2$);
+  }
+
+  // map operator
+  public mapOperator(): Observable<number> {
+    const numbers$ = of(1, 2, 3, 4, 5);
+    return numbers$.pipe(map((x) => x * 100));
   }
 }
