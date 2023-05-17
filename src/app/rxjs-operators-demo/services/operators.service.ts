@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of } from 'rxjs';
+import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -96,5 +96,14 @@ export class OperatorsService {
       })
     );
     return concatMapped$;
+  }
+
+  // switchMap operator
+  public switchMapOperator(): Observable<any> {
+    const source$ = of('hound', 'mastiff', 'retriever');
+    return source$.pipe(switchMap((breed) => {
+      const url = 'https://dog.ceo/api/breed/' + breed + '/list';
+      return this.http.get(url); // inner observable
+    }))
   }
 }
