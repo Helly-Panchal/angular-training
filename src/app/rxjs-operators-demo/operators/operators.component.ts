@@ -1,16 +1,28 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OperatorsService } from '../services/operators.service';
-import { Subscription, forkJoin, from, interval, take, takeUntil, timer } from 'rxjs';
+import { Subscription, debounceTime, forkJoin, from, interval, take, takeUntil, timer } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-operators',
   templateUrl: './operators.component.html',
   styleUrls: ['./operators.component.css']
 })
-export class OperatorsComponent implements OnDestroy {
+export class OperatorsComponent implements OnDestroy, OnInit {
   public subscriptions: Subscription[] = [];
+  public debounceTimeExampleForm!: FormGroup;
 
   constructor(private operatorService: OperatorsService) { }
+
+  ngOnInit(): void {
+    this.debounceTimeExampleForm = new FormGroup({
+      description: new FormControl(null, Validators.required)
+    });
+
+    this.debounceTimeExampleForm.valueChanges.pipe(debounceTime(200)).subscribe(value => {
+      console.log(value);
+    });
+  }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach((subscription) => {
