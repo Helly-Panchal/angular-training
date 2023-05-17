@@ -23,25 +23,32 @@ export class OperatorsComponent implements OnDestroy {
   // of operator
   public onClickOfOperator(): void {
     this.subscriptions.push(this.operatorService.ofOperator().subscribe(res => {
-      console.log(res);
+      console.log("Of operator : ", res);
     }));
 
     this.subscriptions.push(this.operatorService.ofOperatorWithList().subscribe(res => {
-      console.log(res);
+      console.log("Of operator with list : ", res);
     }))
   }
 
   // from operator
   public onClickFromOperator(): void {
     this.subscriptions.push(this.operatorService.fromOperator().subscribe(res => {
-      console.log(res);
+      console.log("From operator : ", res);
     }))
   }
 
   // concatWith operator
   public onClickConcatWithOperator(): void {
-    this.subscriptions.push(this.operatorService.concatWith().subscribe(res => {
-      console.log(res);
+    this.subscriptions.push(this.operatorService.concatWithOperator().subscribe(res => {
+      console.log("ConcatWith operator : ", res);
+    }))
+  }
+
+  // merge operator
+  public onClickMergeOperator(): void {
+    this.subscriptions.push(this.operatorService.mergeOperator().subscribe(res => {
+      console.log("Merge operator : ", res);
     }))
   }
 }
