@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-subject',
@@ -25,5 +25,13 @@ export class SubjectComponent implements OnInit {
     behaviorSubject.next("Hello again from behavior subject-2.");
     behaviorSubject.subscribe(res => console.log("\n\nResponse from behavior subject : ", res));
     behaviorSubject.next("Hello again from behavior subject-3.");
+
+    // replay subject
+    const replaySubject = new ReplaySubject(1);
+    replaySubject.next("Message from replay subject - 1");
+    replaySubject.next("Message from replay subject - 2");
+    replaySubject.next("Message from replay subject - 3");
+    replaySubject.subscribe(res => console.log("\n\nResponse from replay subject : ", res));
+    replaySubject.next("Message from replay subject - 4");
   }
 }
