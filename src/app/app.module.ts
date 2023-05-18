@@ -12,6 +12,7 @@ import { ReactiveFormDemoModule } from './reactive-form-demo/reactive-form-demo.
 import { HttpDemoModule } from './http-demo/http-demo.module';
 import { PipeDemoModule } from './pipe-demo/pipe-demo.module';
 import { RxjsOperatorsDemoModule } from './rxjs-operators-demo/rxjs-operators-demo.module';
+import { SubjectDemoModule } from './subject-demo/subject-demo.module';
 
 // interceptors
 import { JwtInterceptorInterceptor } from './routing-demo/interceptor/jwt-interceptor.interceptor';
@@ -39,7 +40,8 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     HttpDemoModule,
     PipeDemoModule,
-    RxjsOperatorsDemoModule
+    RxjsOperatorsDemoModule,
+    SubjectDemoModule
   ],
 })
 export class AppModule { }
