@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,16 +17,18 @@ export class LoginComponent {
     password: ""
   }
 
-  constructor(private http: HttpClient, private router: Router) { }
+  // constructor(private http: HttpClient, private router: Router) { }
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   public getUsers(): void {
-    this.http.get('http://localhost:3000/api/users').subscribe((res: any) => {
+    this.authService.getUsers().subscribe((res: any) => {
       this.userArray = res;
     });
   }
 
   public login(authData: any): void {
-    this.http.post('http://localhost:3000/api/login', authData).subscribe(
+    this.authService.login(authData).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
         this.user = res.user;
